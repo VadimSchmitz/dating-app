@@ -47,8 +47,16 @@ const env = process.env.NODE_ENV || 'development';
 const dbConfig = config[env];
 
 let sequelize;
-if (dbConfig.use_env_variable) {
+if (dbConfig.use_env_variable && process.env[dbConfig.use_env_variable]) {
   sequelize = new Sequelize(process.env[dbConfig.use_env_variable], dbConfig);
+} else if (env === 'production' && !process.env.DATABASE_URL) {
+  // Fallback to SQLite in production if no DATABASE_URL
+  logger.warn('No DATABASE_URL found in production, falling back to SQLite');
+  sequelize = new Sequelize({
+    dialect: 'sqlite',
+    storage: './database/dating_app.sqlite',
+    logging: false
+  });
 } else if (dbConfig.dialect === 'sqlite') {
   sequelize = new Sequelize({
     dialect: 'sqlite',
