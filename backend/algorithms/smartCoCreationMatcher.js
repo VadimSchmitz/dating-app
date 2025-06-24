@@ -8,12 +8,24 @@ const Bull = require('bull');
 
 class SmartCoCreationMatcher {
   constructor() {
-    // Check if Redis is disabled for demo mode
-    if (process.env.DISABLE_REDIS !== 'true') {
-      this.redis = new Redis(process.env.REDIS_URL || 'redis://localhost:6379');
-      this.analysisQueue = new Bull('match-analysis', process.env.REDIS_URL);
+    // Check if Redis is disabled for demo mode or not available
+    if (process.env.DISABLE_REDIS !== 'true' && process.env.REDIS_URL) {
+      try {
+        this.redis = new Redis(process.env.REDIS_URL);
+        this.analysisQueue = new Bull('match-analysis', process.env.REDIS_URL);
+        
+        // Silence Redis errors
+        this.redis.on('error', (err) => {
+          logger.debug('Redis connection error (non-critical):', err.message);
+        });
+      } catch (error) {
+        logger.info('Redis not available, running without caching');
+        this.redis = null;
+        this.analysisQueue = null;
+      }
     } else {
-      // Mock Redis for demo mode
+      // Running without Redis
+      logger.info('Running without Redis - basic matching only');
       this.redis = null;
       this.analysisQueue = null;
     }
