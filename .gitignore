@@ -45,4 +45,4 @@ coverage/
 # Misc
 *.bak
 *.tmp
-.cache/
+.cache/.git-credentials
