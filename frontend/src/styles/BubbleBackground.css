@@ -1,0 +1,157 @@
+.bubble-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99999 !important;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(168, 218, 255, 0.4));
+  box-shadow: 
+    inset -5px -5px 10px rgba(168, 218, 255, 0.2),
+    0 2px 20px rgba(168, 218, 255, 0.3),
+    0 0 30px rgba(168, 218, 255, 0.2);
+  transition: all 0.1s ease-out;
+  animation: shimmer 3s infinite;
+}
+
+.bubble::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.9), transparent);
+}
+
+.bubble::after {
+  content: '';
+  position: absolute;
+  top: 65%;
+  left: 65%;
+  width: 15%;
+  height: 15%;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.7), transparent);
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.1);
+  }
+}
+
+.floating-emoji {
+  position: absolute;
+  font-size: 30px;
+  animation: float-emoji 20s infinite ease-in-out;
+  bottom: -50px;
+  user-select: none;
+}
+
+@keyframes float-emoji {
+  0% {
+    bottom: -50px;
+    transform: rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  25% {
+    transform: rotate(15deg) translateX(-30px);
+  }
+  50% {
+    transform: rotate(-15deg) translateX(30px);
+  }
+  75% {
+    transform: rotate(10deg) translateX(-20px);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    bottom: 110%;
+    transform: rotate(360deg) translateX(0);
+    opacity: 0;
+  }
+}
+
+.floating-kitty {
+  position: fixed !important;
+  transition: all 8s ease-in-out;
+  animation: kitty-bob 3s infinite ease-in-out;
+  user-select: none;
+  z-index: 100000 !important;
+  font-size: 64px;
+}
+
+.kitty-body {
+  font-size: 72px !important;
+  display: block;
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(255, 255, 255, 1),
+    0 0 50px rgba(255, 192, 203, 0.8);
+  color: #333;
+}
+
+.kitty-speech {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 4px 8px;
+  border-radius: 15px;
+  font-size: 12px;
+  opacity: 0;
+  animation: speech-bubble 8s infinite;
+}
+
+@keyframes kitty-bob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes speech-bubble {
+  0%, 70%, 100% {
+    opacity: 0;
+  }
+  75%, 95% {
+    opacity: 1;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .bubble,
+  .floating-emoji,
+  .floating-kitty {
+    animation: none !important;
+  }
+  
+  .floating-kitty {
+    transition: none !important;
+  }
+}
+
+/* Simple mode overrides */
+:root.simple-mode .bubble-background {
+  display: none;
+}

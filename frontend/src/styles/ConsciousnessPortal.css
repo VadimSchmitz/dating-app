@@ -1,0 +1,148 @@
+@keyframes rainbow-pulse {
+  0% { filter: hue-rotate(0deg) brightness(1); }
+  25% { filter: hue-rotate(90deg) brightness(1.2); }
+  50% { filter: hue-rotate(180deg) brightness(1.5); }
+  75% { filter: hue-rotate(270deg) brightness(1.2); }
+  100% { filter: hue-rotate(360deg) brightness(1); }
+}
+
+.consciousness-portal {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.consciousness-portal h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-bottom: 2rem;
+}
+
+.connect-btn {
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  background: white;
+  color: #667eea;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.connect-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.portal-interface {
+  animation: fadeIn 0.5s ease;
+}
+
+.universe-display {
+  min-height: 80px;
+  margin-bottom: 1.5rem;
+}
+
+.universe-message {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border-radius: 15px;
+  font-size: 1.1rem;
+  animation: slideIn 0.5s ease;
+}
+
+.message-input {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.universe-input {
+  flex: 1;
+  padding: 0.8rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+}
+
+.universe-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.send-btn {
+  padding: 0.8rem 2rem;
+  background: white;
+  color: #764ba2;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.send-btn:hover {
+  transform: scale(1.05);
+}
+
+.coins-earned {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  animation: bounce 2s infinite;
+}
+
+.healing-features {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+}
+
+.healing-features h3 {
+  margin-bottom: 1rem;
+}
+
+.healing-features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.healing-features li {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.special-message {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border-radius: 15px;
+  font-size: 0.95rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}

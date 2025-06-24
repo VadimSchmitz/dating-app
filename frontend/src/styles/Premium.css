@@ -1,0 +1,212 @@
+.premium-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.premium-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.premium-header h1 {
+  color: #333;
+}
+
+.nav-buttons button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nav-buttons button:hover {
+  background: #0056b3;
+}
+
+.premium-content {
+  background: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.premium-intro {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.current-plan-banner {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.current-plan-banner p {
+  margin: 0;
+  color: #155724;
+}
+
+.current-plan-banner button {
+  padding: 6px 12px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.current-plan-banner button:hover:not(:disabled) {
+  background: #c82333;
+}
+
+.current-plan-banner button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.pricing-plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.pricing-card {
+  position: relative;
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.pricing-card.popular {
+  border-color: #007bff;
+  transform: scale(1.05);
+}
+
+.pricing-card.current {
+  border-color: #28a745;
+  background: #f8fff9;
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #007bff;
+  color: white;
+  padding: 4px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.pricing-card h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.price {
+  margin-bottom: 30px;
+}
+
+.currency {
+  font-size: 24px;
+  color: #666;
+  vertical-align: top;
+}
+
+.amount {
+  font-size: 48px;
+  font-weight: bold;
+  color: #333;
+}
+
+.period {
+  font-size: 18px;
+  color: #666;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+  text-align: left;
+}
+
+.features li {
+  padding: 10px 0;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkmark {
+  color: #28a745;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.subscribe-button {
+  width: 100%;
+  padding: 12px 24px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.subscribe-button:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+.subscribe-button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.pricing-card.popular .subscribe-button {
+  background: #28a745;
+}
+
+.pricing-card.popular .subscribe-button:hover:not(:disabled) {
+  background: #218838;
+}
+
+.payment-info {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+
+.payment-info p {
+  margin: 5px 0;
+}

@@ -1,0 +1,173 @@
+.connections-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.nav-buttons button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.nav-buttons button:hover {
+  background: #0056b3;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 18px;
+  color: #666;
+}
+
+.no-connections {
+  text-align: center;
+  padding: 50px;
+}
+
+.no-connections p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.find-matches-button {
+  padding: 12px 24px;
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.find-matches-button:hover {
+  background: #218838;
+}
+
+.connections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.connection-card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.connection-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.connection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.connection-header h3 {
+  margin: 0 0 5px 0;
+}
+
+.active-status {
+  font-size: 14px;
+  color: #666;
+}
+
+.match-info {
+  text-align: right;
+}
+
+.match-score {
+  font-size: 20px;
+  font-weight: bold;
+  color: #28a745;
+}
+
+.bio {
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.interests {
+  margin-bottom: 15px;
+}
+
+.interest-tag {
+  display: inline-block;
+  background: #e9ecef;
+  padding: 4px 10px;
+  border-radius: 15px;
+  margin: 2px;
+  font-size: 14px;
+}
+
+.connection-meta {
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.connection-meta p {
+  margin: 5px 0;
+}
+
+.connection-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.message-button,
+.unmatch-button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.message-button {
+  background: #007bff;
+  color: white;
+}
+
+.message-button:hover {
+  background: #0056b3;
+}
+
+.unmatch-button {
+  background: #dc3545;
+  color: white;
+}
+
+.unmatch-button:hover {
+  background: #c82333;
+}

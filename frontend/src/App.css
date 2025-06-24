@@ -1,0 +1,269 @@
+/* Fun and bubbly base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #ffeef8 0%, #e6f3ff 50%, #ffe6f7 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.App {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+}
+
+/* Force bubbles to be on absolute top */
+.bubble-background {
+  z-index: 999999 !important;
+  pointer-events: none !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+.bubble-background * {
+  pointer-events: none !important;
+}
+
+.rainbow-overlay {
+  z-index: 999998 !important;
+}
+
+/* All main content below bubbles */
+.matches-container,
+.profile-container,
+.login-container,
+.register-container,
+.connections-container,
+.messages-container,
+.foam-party-container,
+.fun-finder-container,
+.premium-container {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+}
+
+/* Special handling for accessibility settings - needs solid background */
+.accessibility-container {
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.95);
+  min-height: 100vh;
+}
+
+/* Reset any high z-index values that might interfere */
+.modal, .modal-backdrop, .overlay, .popup {
+  z-index: 1050 !important;
+}
+
+/* Ensure bubbles are always on absolute top */
+body > .bubble-background {
+  z-index: 2147483647 !important; /* Maximum z-index value */
+}
+
+/* Fun button styles */
+button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+button:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Cute :3 face decorations */
+.cute-face::before {
+  content: ':3';
+  position: absolute;
+  font-size: 12px;
+  opacity: 0.3;
+  animation: peek 4s infinite;
+}
+
+@keyframes peek {
+  0%, 90%, 100% {
+    transform: rotate(-5deg) translateX(0);
+    opacity: 0;
+  }
+  95% {
+    transform: rotate(5deg) translateX(5px);
+    opacity: 0.3;
+  }
+}
+
+/* Rounded corners everywhere for softness */
+input, textarea, select, .card, .modal {
+  border-radius: 12px;
+}
+
+/* Soft shadows */
+.card, .modal, button {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Make cards semi-transparent */
+.match-card, 
+.event-card,
+.activity-card,
+.date-idea-card,
+.message-item,
+.connection-card {
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(10px);
+  position: relative !important;
+  z-index: auto !important;
+}
+
+/* Fun hover effects */
+.card:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Colorful focus states */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #ff6b9d;
+  box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.2);
+}
+
+/* Kitty cursor on fun elements */
+.fun-element {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text x="0" y="24" font-size="24">🐾</text></svg>'), auto;
+}
+
+/* Loading animations */
+.loading {
+  display: inline-block;
+  position: relative;
+}
+
+.loading::after {
+  content: '•ᴗ•';
+  display: inline-block;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Color blind filters */
+.protanopia-filter {
+  filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='protanopia'%3E%3CfeColorMatrix type='matrix' values='0.567, 0.433, 0, 0, 0 0.558, 0.442, 0, 0, 0 0, 0.242, 0.758, 0, 0 0, 0, 0, 1, 0'/%3E%3C/filter%3E%3C/svg%3E#protanopia");
+}
+
+.deuteranopia-filter {
+  filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='deuteranopia'%3E%3CfeColorMatrix type='matrix' values='0.625, 0.375, 0, 0, 0 0.7, 0.3, 0, 0, 0 0, 0.3, 0.7, 0, 0 0, 0, 0, 1, 0'/%3E%3C/filter%3E%3C/svg%3E#deuteranopia");
+}
+
+.tritanopia-filter {
+  filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='tritanopia'%3E%3CfeColorMatrix type='matrix' values='0.95, 0.05, 0, 0, 0 0, 0.433, 0.567, 0, 0 0, 0.475, 0.525, 0, 0 0, 0, 0, 1, 0'/%3E%3C/filter%3E%3C/svg%3E#tritanopia");
+}
+
+/* High contrast mode overrides */
+:root.high-contrast {
+  background: white !important;
+}
+
+:root.high-contrast * {
+  color: black !important;
+  background-color: white !important;
+  border-color: black !important;
+}
+
+:root.high-contrast button {
+  background-color: black !important;
+  color: white !important;
+  border: 2px solid black !important;
+}
+
+:root.high-contrast input,
+:root.high-contrast textarea,
+:root.high-contrast select {
+  border: 2px solid black !important;
+}
+
+/* Simple mode - less decorative elements */
+:root.simple-mode .cute-face::before,
+:root.simple-mode .decorative-emoji,
+:root.simple-mode .bubble-background {
+  display: none !important;
+}
+
+:root.simple-mode * {
+  animation: none !important;
+}
+
+/* Screen reader friendly */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Fun gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #ff6b9d 50%, #feca57 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+  
+  .bubble {
+    opacity: 0.5;
+  }
+}
+
+/* Print styles */
+@media print {
+  .bubble-background,
+  .floating-kitty,
+  .decorative-element {
+    display: none !important;
+  }
+}

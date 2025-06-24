@@ -1,0 +1,177 @@
+.rainbow-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.rainbow-gradient {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(255, 0, 0, 0.1),
+    rgba(255, 154, 0, 0.1),
+    rgba(208, 222, 33, 0.1),
+    rgba(79, 220, 74, 0.1),
+    rgba(63, 218, 216, 0.1),
+    rgba(47, 201, 226, 0.1),
+    rgba(28, 127, 238, 0.1),
+    rgba(95, 21, 242, 0.1),
+    rgba(186, 12, 248, 0.1),
+    rgba(251, 7, 217, 0.1),
+    rgba(255, 0, 0, 0.1)
+  );
+  animation: rainbow-spin 30s linear infinite;
+  mix-blend-mode: screen;
+  opacity: 0.3;
+}
+
+@keyframes rainbow-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.rainbow-sparkle {
+  position: absolute;
+  font-size: 20px;
+  animation: sparkle-float 8s ease-in-out infinite;
+  filter: hue-rotate(0deg);
+  animation: sparkle-float 8s ease-in-out infinite, rainbow-hue 2s linear infinite;
+}
+
+@keyframes sparkle-float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.2);
+  }
+}
+
+@keyframes rainbow-hue {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Rainbow mode text effects - but not for buttons */
+:root.rainbow-mode h1,
+:root.rainbow-mode h2,
+:root.rainbow-mode h3 {
+  background: linear-gradient(
+    to right,
+    #ff0000,
+    #ff9a00,
+    #d0de21,
+    #4fdc4a,
+    #3fdad8,
+    #2fc9e2,
+    #1c7fee,
+    #5f15f2,
+    #ba0cf8,
+    #fb07d9,
+    #ff0000
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbow-text 3s linear infinite;
+}
+
+/* Fix button text visibility in rainbow mode */
+:root.rainbow-mode button {
+  color: inherit !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+@keyframes rainbow-text {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Rainbow borders */
+:root.rainbow-mode .match-card,
+:root.rainbow-mode button,
+:root.rainbow-mode input,
+:root.rainbow-mode textarea {
+  position: relative;
+  background: white;
+}
+
+:root.rainbow-mode .match-card::before,
+:root.rainbow-mode button::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff9a00,
+    #d0de21,
+    #4fdc4a,
+    #3fdad8,
+    #2fc9e2,
+    #1c7fee,
+    #5f15f2,
+    #ba0cf8,
+    #fb07d9,
+    #ff0000
+  );
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.6;
+  animation: rainbow-border 3s linear infinite;
+}
+
+@keyframes rainbow-border {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .rainbow-gradient,
+  .rainbow-sparkle,
+  :root.rainbow-mode h1,
+  :root.rainbow-mode h2,
+  :root.rainbow-mode h3,
+  :root.rainbow-mode .match-card::before,
+  :root.rainbow-mode button::before {
+    animation: none !important;
+  }
+}
+
+/* Simple mode override */
+:root.simple-mode .rainbow-overlay {
+  display: none;
+}
